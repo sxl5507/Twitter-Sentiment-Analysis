@@ -1,0 +1,28 @@
+Apache Spark in Python: Beginner's Guide
+https://www.datacamp.com/community/tutorials/apache-spark-python
+
+How to install PySpark locally
+http://sigdelta.com/blog/how-to-install-pyspark-locally/
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Apache Spark is written in Scala programming language that compiles the program code into byte code for the JVM for spark big data processing.
+So, download Java SE Development Kit 8 first.
+
+
+get some prebuild version of Hadoop for Windows
+Download file https://github.com/karthikj1/Hadoop-2.7.1-Windows-64-binaries/releases/download/v2.7.1/hadoop-2.7.1.tar.gz.
+
+
+Add System Variable
+JAVA_HOME: C:\Program Files\Java\jdk1.8.0_162
+HADOOP_HOME: C:\Hadoop\hadoop-2.7.1
+PYSPARK_PYTHON: C:\Users\Siyan\Anaconda3\python.exe        # location of python
+PATH: C:\Program Files\Java\jdk1.8.0_162\bin; C:\Hadoop\hadoop-2.7.1\bin
+
+
+pip install pyspark (conda install has some issue)
+
+
+
+

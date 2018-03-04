@@ -1,0 +1,84 @@
+some procedures come from video (spark and python for big data with pyspark) on udemy
+
+
+============================================================ install pip3, java, jupyter, spark, scala, py4j, and findspark (py file to find pyspark)
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt install python3-pip
+pip3 install --upgrade pip
+
+pip3 install virtualenv			
+virtualenv -p python3.6 py3.6		# setup python3.6 environment
+source py3.6/bin/activate
+vi .bash_profile			# auto enable py3.6 environment each time connect to bash
+i -> source py3.6/bin/activate -> ESC	# edit
+Shift-z-z				# Save file and exit the vi editor
+
+pip3 install jupyter
+sudo apt-get install default-jre
+sudo apt-get install scala
+wget https://www.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
+sudo tar -zxvf spark-2.2.1-bin-hadoop2.7.tgz
+pip3 install findspark
+pip3 install py4j
+pip3 install pandas
+pip3 install requests
+pip3 install nltk
+pip3 install textblob
+pip3 install requests_oauthlib
+
+
+============================================================ config jupyter	http://testnb.readthedocs.io/en/stable/examples/Notebook/Configuring%20the%20Notebook%20and%20Server.html
+jupyter notebook --generate-config
+mkdir certs
+cd certs
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem		 # Generate a Self-Signed Certificate	https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs   
+cd ~/.jupyter/
+vi jupyter_notebook_config.py
+type <i> to insert
+c=get_config()
+c.NotebookApp.certfile= u'/home/ubuntu/certs/mycert.pem'
+c.NotebookApp.ip='*'
+c.NotebookApp.open_browser= False
+c.NotebookApp.port=8888
+press <esc> to exit insert
+type <:wq> to write and quit vi
+
+
+============================================================ connect to jupyter notebook and find pyspark
+type <nohup jupyter notebook </dev/null >/dev/null 2>&1 &> to make sure server is running even after closing (ctrl + D) console
+highlight https address for copy
+https://18.222.66.77:8888/?token=c5818aad368e59bc1a6657ca4e3218bb1c16930e916bbb72
+get unsecure warning, but hit advance and access the website anyway
+
+open new jupyter notebook:
+import findspark
+findspark.init('/home/ubuntu/spark-2.2.1-bin-hadoop2.7')
+run
+
+
+============================================================ install awscli, configure, set path
+get IAM keys							# https://aws.amazon.com/getting-started/tutorials/backup-to-s3-cli/
+pip3 install awscli
+export PATH=/home/ubuntu/.local/bin:$PATH			# Add the install location to the beginning of PATH variable
+aws configure
+aws s3 sync /home/ubuntu/tweet  s3://tweetbackup		# recursively copies new and updated files to s3
+
+
+============================================================ (optional) set time, kill a port/process, check disk space, auto run the process, sync file to local
+sudo apt-get install ntpdate
+sudo ntpdate -s time.nist.gov
+sudo timedatectl set-timezone America/Mexico_City
+
+sudo fuser -k 8888/tcp
+ps -e | grep jupyter		# check process filtered with <jupyter> keyword
+kill <PID>			# kill a process
+df				# check disk space
+fg, bg				# execute at foreground or background
+
+add any command to .bash_profile to auto run the process each time login to Ubuntu
+
+cd C:\Users\Siyan\OneDrive\Backup 2017_07\Course\Data Science\Machine Learning\Github\Twitter Sentiment Analysis
+aws s3 sync s3://tweetbackup  . --exclude "*" --include "tweets_processed.txt"		# sync file to local, must use (") rather than (')
+
