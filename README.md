@@ -8,10 +8,12 @@ Using Requests library to stream tweets (contain keyword: Trump) periodically. O
 
 **us_cities_states_counties.csv** contains all US cities and states, which is used to filter locations.
 
-**uscity_38148_population.csv** contains longitude and latitude associate with each city. Population is also included. This file is used in Tableau map for visualization.
+**uscity_38148_population.csv** contains longitude and latitude associate with each city. Population is also included. This file is used in Tableau map in order to add extra details for visualization.
+
+**Trump Approval Rating from Tweets.twbx** Tableau Packaged Workbooks
 
 ## Algorithm
-Please see tweets_main.py
+Please **see tweets_main.py**
 
 ## AWS EC2 Instruction
 [AWS EC2 with Spark.txt]( https://github.com/sxl5507/Twitter-Sentiment-Analysis/blob/master/instruction/AWS%20EC2%20with%20Spark.txt) shows instruction of how to setup environment and install pyspark with Jupyter Notebook in AWS EC2 Ubuntu.
