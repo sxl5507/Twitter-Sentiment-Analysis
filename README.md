@@ -19,7 +19,7 @@ Using Requests library to stream tweets (contain keyword: Trump) periodically. O
 **Trump Approval Rating from Tweets.twbx** Tableau Packaged Workbooks
 
 ## Algorithm
-Please **see tweets_main.py**
+Please see **tweets_main.py**
 
 ## AWS EC2 Instruction
 [AWS EC2 with Spark.txt]( https://github.com/sxl5507/Twitter-Sentiment-Analysis/blob/master/instruction/AWS%20EC2%20with%20Spark.txt) shows instruction of how to setup environment and install pyspark with Jupyter Notebook in AWS EC2 Ubuntu.
