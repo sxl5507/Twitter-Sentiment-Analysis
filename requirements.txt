@@ -1,5 +1,5 @@
 awscli==1.14.48
-bleach==2.1.2
+bleach==3.3.0
 botocore==1.9.1
 certifi==2018.1.18
 chardet==3.0.4
